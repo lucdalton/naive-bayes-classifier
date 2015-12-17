@@ -1,0 +1,1 @@
+# Simple text classifier using naive bayes algorithm
