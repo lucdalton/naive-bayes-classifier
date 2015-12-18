@@ -11,7 +11,7 @@ from NBClassifier import NBClassifier
 import json
 
 print 'loading training data....'
-classifier = NBClassifier('pos_tweets', 'neg_tweets')
+classifier = NBClassifier('pos_sample', 'neg_sample')
 
 class SentimentServer(BaseHTTPRequestHandler):
 
@@ -38,7 +38,12 @@ class SentimentServer(BaseHTTPRequestHandler):
         for key in form.keys():
             #print key
             sent_data = form[key].value;
+            
+
             returnData = self.get_sentiment(sent_data)
+            #returnData = self.someClassifier.test_sentence_result(sent_data)
+            
+
             returnData['text'] = sent_data
             self.wfile.write(json.dumps(returnData))
             if (i < amountSent -1):
@@ -47,6 +52,12 @@ class SentimentServer(BaseHTTPRequestHandler):
         self.wfile.write(']')
         return
 
+    def __init(self, someClassifier):
+        self.sentimentClassifier = someClassifier
+
+#server = HTTPServer(('localhost', 8080), SentimentServer)
+
 server = HTTPServer(('localhost', 8080), SentimentServer)
+
 print 'Done..\nStarting server, use <Ctrl-C> to stop'
 server.serve_forever()
