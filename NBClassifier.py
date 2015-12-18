@@ -73,6 +73,19 @@ class NBClassifier:
 		#print json.dumps(sent)
 		return sent
 
+	def test_sentence_result(self, sentence):
+		return_result = self.test_sentence(sentence)
+		pos = return_result['pos']
+		neg = return_result['neg']
+		if(pos < neg):
+			return_result['result'] = 'neg'
+		else:
+			return_result['result'] = 'pos'
+		return return_result
+
+		
+		
+
 	def __init__(self, pos_training, neg_training):
 		self.pos_tweets = open(pos_training, 'r').readlines()
 		self.neg_tweets = open(neg_training, 'r').readlines()

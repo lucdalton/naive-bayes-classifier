@@ -3,3 +3,5 @@ neg_sample
 neg_tweets
 pos_sample
 pos_tweets
+test.py
+*.pyc
