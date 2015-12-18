@@ -11,7 +11,7 @@ from NBClassifier import NBClassifier
 import json
 
 print 'loading training data....'
-classifier = NBClassifier('pos_sample', 'neg_sample')
+classifier = NBClassifier('pos_tweets', 'neg_tweets')
 
 class SentimentServer(BaseHTTPRequestHandler):
 
