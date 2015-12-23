@@ -34,7 +34,7 @@ class SentimentServer(BaseHTTPRequestHandler):
         amountSent = len(form.keys())
         
         i = 0
-        self.wfile.write('[')
+        #self.wfile.write('[')
         for key in form.keys():
             #print key
             sent_data = form[key].value;
@@ -49,7 +49,7 @@ class SentimentServer(BaseHTTPRequestHandler):
             if (i < amountSent -1):
                 self.wfile.write(',')
                 i += 1
-        self.wfile.write(']')
+        #self.wfile.write(']')
         return
 
     def __init(self, someClassifier):
