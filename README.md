@@ -1,3 +1,2 @@
-# Simple text classifier using naive bayes algorithm
-
-Test the sentiment of tweets.  includes a HTTP server 
+# Text classifier to test the sentiment of tweets using naive-Bayes algorithm
+requires training data
